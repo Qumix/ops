@@ -70,7 +70,6 @@ class OsqProxyServer():
         return json.dumps({"result":self.resultMsg, "rc":self.rc})
 
     def run(self):
-        #server_address = (self.listen_addr, self.listen_port)
         print 'osquery proxy is listening on 0.0.0.0:%s ...' % str(self.listen_port)
         self.osqHandler = OsqueryRequestHandler
         try:
@@ -95,7 +94,6 @@ if __name__ == '__main__':
     parser.add_argument('--port', metavar='PORT',
                          type=int, default=8161, help='listen TCP port.')
     args = parser.parse_args()
-    #run(args.port)
 
     testserver = OsqProxyServer('0.0.0.0',args.port)
     testserver.run()
